@@ -43,7 +43,7 @@ Set-ExecutionPolicy Unrestricted
 Ejecutar en PowerShell:
 
 ```powershell
-Install-Module oh-my-posh -Scope CurrentUser
+winget install JanDeDobbeleer.OhMyPosh
 ```
 
 Listar los temas:
@@ -52,13 +52,11 @@ Listar los temas:
 Get-PoshThemes
 ```
 
-Escoger un tema en este caso escogi blueish:
+Crear el scrip de configuracion powershell:
 
 ```powershell
-Set-PoshPrompt -Theme blueish
+New-Item -Path $PROFILE -Type File -Force
 ```
-![](https://i.ibb.co/RzDBwqm/oh-my-posh.jpg)
-
 ---
 ## Instalación terminal icons
 
@@ -78,8 +76,6 @@ notepad $PROFILE
 Al abrir el archivo, guardar los comandos:
 
 ```powershell
+oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH\cobalt2.omp.json" | Invoke-Expression
 Import-Module -Name Terminal-Icons
-Import-Module oh-my-posh
-Set-PoshPrompt -Theme blueish
 ```
-![](https://i.ibb.co/2YjsY3F/note.jpg)
